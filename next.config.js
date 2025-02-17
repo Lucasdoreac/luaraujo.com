@@ -4,14 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  experimental: {
-    forceSwcTransforms: true,
-  },
+  basePath: '/luaraujo.com',
+  assetPrefix: '/luaraujo.com/',
 }
 
 module.exports = nextConfig
