@@ -1,0 +1,56 @@
+name: MCP Continuity Integration
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 */6 * * *'  # Runs every 6 hours
+
+jobs:
+  integrate-mcp:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Clone MCP Continuity Tool
+      run: |
+        git clone https://github.com/Lucasdoreac/mcp-continuity-tool.git
+        cd mcp-continuity-tool
+        npm install
+
+    - name: Run MCP Integration
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        node mcp-continuity-tool/integration.js
+
+    - name: Build and Deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        npm run build
+        npm run deploy
+
+    - name: Update Status
+      run: |
+        echo "MCP Integration completed at $(date)" >> status.log
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add status.log
+        git commit -m "chore: update integration status" || echo "No changes to commit"
+        git push
