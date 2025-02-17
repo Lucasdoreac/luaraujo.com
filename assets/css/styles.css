@@ -1,0 +1,549 @@
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    line-height: 1.6;
+}
+ /* Estilos para a navbar  (altura) */
+.navbar-custom {
+  height: 70px;
+}
+.navbar .container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 auto;
+}
+.container {
+     margin: 40px auto;
+      padding: 20px;
+    padding-left: 5px;
+     padding-right: 5px;
+      background: #2c2c2c;
+       border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+ @media (min-width: 1200px) {
+    .container {
+          max-width: 1000px;
+     }
+}
+@media (min-width: 2000px) {
+    .navbar {
+        max-width: 1200px;
+    }
+    .container {
+        max-width: 100%;
+    }
+}
+h1, h2, h3, h4 {
+    color: #fff; /* Títulos brancos */
+    margin-bottom: 25px;
+}
+h1 {
+   text-align: center;
+   font-size: 2em;
+    margin-bottom: 30px;
+}
+ .form-group {
+    margin-bottom: 25px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+ label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #bbb; /* Labels mais claras */
+}
+ input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box;
+}
+button {
+   width: 100%;
+   padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   font-size: 16px;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+button:hover {
+    background-color: #2980b9;
+}
+ .educational-tips {
+    background: #333; /* Fundo da dica */
+    padding: 20px;
+   border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.concept-explanation {
+    display: none;
+    background: #333; /* Fundo da explicação */
+   padding: 15px;
+    border: 1px solid #555;
+   border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.help-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: #555; /* Ícone de ajuda */
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+ .help-icon:hover {
+   background: #444;
+}
+.goals-section {
+    background: #333; /* Seção de metas */
+   padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #555; /* Borda mais escura */
+}
+.tab-container {
+    margin: 20px 0 30px 0;
+}
+.tab-buttons {
+   display: flex;
+    gap: 10px;
+   margin-bottom: 15px;
+    border-bottom: 2px solid #555;
+   padding-bottom: 10px;
+}
+.container-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin: 1rem 0 2rem 0;
+}
+.container-botoes button {
+    flex: 0 1 auto;
+    width: auto; /* Faz com que o botão ocupe o seu espaço */
+    padding: 0.6rem 0.8rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+    margin-right: 5px;
+}
+.container-botoes button:hover {
+    background-color: #2980b9;
+}
+.container-botoes a {
+    text-decoration: none;
+    color: white;
+}
+.tab-button {
+    padding: 10px 20px;
+    border: none;
+   background: #444; /* Botões da aba */
+    cursor: pointer;
+   border-radius: 5px 5px 0 0;
+   font-weight: bold;
+    transition: all 0.3s;
+    color: #fff; /* Texto dos botões da aba */
+   box-sizing: border-box;
+}
+ .tab-button.active {
+    background: #3498db;
+    color: white;
+}
+.tab-content {
+   display: none;
+   padding: 20px;
+    background: #333; /* Conteúdo da aba */
+   border-radius: 5px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.tab-content.active {
+   display: block;
+}
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #444;
+    overflow-x: auto;
+}
+.comparison-table th, .comparison-table td {
+   padding: 12px;
+   border: 1px solid #555;
+    text-align: left;
+    color: #fff; /* Texto da tabela */
+}
+.comparison-table th {
+   background: #555;
+    font-weight: bold;
+   color: #fff; /* Texto do cabeçalho da tabela */
+}
+.comparison-table tr:nth-child(even) {
+    background: #555; /* Linhas pares da tabela */
+}
+.milestone-alert {
+   background: #444;
+   color: #2ecc71; /* Cor do texto de alerta */
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+   display: none;
+    border: 1px solid #555;
+}
+ .results {
+     background: #333;
+     padding: 20px;
+     border-radius: 5px;
+     margin-top: 30px;
+     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+     color: #fff; /* Texto dos resultados */
+ }
+.results p {
+    margin: 10px 0 20px 0;
+    padding: 8px;
+    border-bottom: 1px solid #555; /* Borda dos resultados */
+}
+.results strong {
+   color: #3498db;
+}
+.chart-container {
+    margin-top: 20px;
+   padding: 20px;
+    background: #333;
+   border-radius: 5px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    overflow-x: auto;
+}
+.educational-content {
+    padding: 20px;
+    background: #333; /* Fundo do conteúdo educacional */
+   border-radius: 5px;
+}
+.educational-content h4 {
+    color: #fff; /* Texto do título do conteúdo educacional */
+   margin-top: 20px;
+}
+.educational-content ul {
+    padding-left: 20px;
+}
+.educational-content li {
+   margin-bottom: 10px;
+}
+.risk-meter {
+   width: 100%;
+   height: 20px;
+   background: linear-gradient(to right, #2ecc71, #f1c40f, #e74c3c);
+    border-radius: 10px;
+    margin: 10px 0;
+   position: relative;
+}
+.risk-indicator {
+    width: 10px;
+   height: 30px;
+   background: #2c3e50;
+    position: absolute;
+    top: -5px;
+   transform: translateX(-50%);
+   transition: left 0.3s;
+}
+.highlight {
+    background-color: #555; /* Fundo do destaque */
+}
+.instruction {
+    color: #e74c3c;
+   font-size: 0.9em;
+    margin-top: 5px;
+}
+ /* General Navbar Styles */
+.navbar {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 0.3rem;
+    padding-bottom: 0.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #2c2c2c; /* Background color */
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+/* A largura da navbar de 100px mencionada pelo usuário não foi encontrada no código. A responsividade foi garantida com as media queries adicionadas. */
+ .navbar-brand {
+    font-weight: 700;
+   font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9) !important; /* Brand text color */
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+ .navbar-brand:hover {
+    color: #fff !important; /* Hover color for brand */
+}
+.navbar-nav .nav-link {
+   padding: 0.5rem 1rem !important;
+    color: rgba(255, 255, 255, 0.9) !important; /* Link text color */
+   transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+   position: relative;
+}
+.navbar-nav .nav-link:hover {
+   color: #fff !important; /* Hover effect for links */
+   background-color: rgba(255, 255, 255, 0.1); /* Subtle background hover */
+    border-radius: 5px; /* Rounded corners for hover */
+}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+}
+/* Dropdown Styles */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    background-color: #444; /* Dropdown background color */
+}
+.dropdown-item {
+    padding: 0.7rem 1.5rem;
+   color: #fff; /* Dropdown text color */
+    transition: all 0.3s ease; /* Smooth hover transition */
+}
+.dropdown-item:hover {
+    background-color: #555; /* Hover background color */
+    color: #007bff; /* Hover text color */
+}
+/* Mobile Optimizations */
+@media (max-width: 991.98px) {
+    .navbar {
+         padding: 0.2rem 1rem;
+         padding-left: 5px;
+         padding-right: 5px;
+    }
+     .navbar-nav {
+        padding: 0.2rem 0;
+    }
+     .navbar-nav .nav-link {
+         padding: 0.8rem 1rem !important;
+        color: rgba(255, 255, 255, 0.9) !important; /* Mobile link color */
+    }
+    .navbar-nav .nav-link:hover {
+         color: #fff !important; /* Mobile link hover color */
+        background-color: rgba(255, 255, 255, 0.1); /* Mobile hover effect */
+    }
+    .dropdown-menu {
+       background-color: #2c2c2c; /* Transparent dropdown background */
+       border: none;
+        box-shadow: none;
+    }
+    .dropdown-item {
+       color: rgba(255, 255, 255, 0.9) !important;
+    }
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Transparent hover effect */
+       color: #fff !important;
+    }
+}
+ /* Estilos do Footer */
+footer {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 40px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+footer .container {
+   max-width: 1000px;
+    padding: 0;
+}
+footer .row {
+   width: 100%;
+}
+footer a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+   transition: all 0.3s ease;
+}
+footer a:hover {
+   color: #fff;
+    text-decoration: none;
+}
+footer h5 {
+   font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+footer .list-unstyled li {
+   margin-bottom: 0.5rem;
+}
+footer hr {
+    border-color: rgba(255,255,255,0.1);
+    margin: 2rem 0;
+}
+footer .social-links {
+   font-size: 1.5rem;
+}
+footer .social-links a {
+    margin-right: 1rem;
+}
+footer .social-links a:hover {
+    transform: translateY(-3px);
+    display: inline-block;
+}
+footer a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: rgba(0, 255, 0, 1); /* Cor de destaque ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+@media (max-width: 768px) {
+    footer [class^="col-"] {
+     padding-left: 5px;
+     padding-right: 5px;
+   }
+}
+@media (max-width: 576px) { /* Ajuste para telas menores que 576px */
+  .navbar {
+     padding-left: 2px;
+    padding-right: 2px;
+    }
+}
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #2c3e50, #1a2a3c); /* Gradiente sutil */
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.6)); /* Sombra na imagem */
+}
+
+/* Calculadoras Section */
+.calculators-section {
+    background: linear-gradient(135deg, #1a2a3c, #2c3e50);
+}
+.calculator-card {
+    background-color: #34495e;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.calculator-card .card-footer {
+     background-color: transparent;
+     border-top: 1px solid rgba(255,255,255,0.1);
+}
+/* Features Section */
+.features-section {
+    background-color: #2c3e50;
+}
+
+.feature-item {
+    background: #34495e;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Call to Action */
+.cta-section {
+    background: linear-gradient(45deg, #1a2a3c, #2c3e50);
+    padding: 40px 0;
+}
+
+/* Animação sutil de hover nos botões */
+.btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-primary,
+.btn-outline-primary{
+    border: 1px solid #3498db;
+     background-color: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+.btn-primary:hover,
+.btn-outline-primary:hover{
+     background-color: #3498db;
+    color: white; /* Cor do texto ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-section .col-lg-6:last-child {
+        display: none; /* Esconde a imagem em telas menores */
+    }
+    .hero-section .col-lg-6:first-child {
+        text-align: center; /* Centraliza texto */
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+      .card-text {
+      font-size: 0.9rem;
+    }
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #3498db; /* Cor da linha abaixo do título */
+    transform: translateX(-50%);
+}
