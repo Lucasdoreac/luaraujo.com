@@ -1,12 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/luaraujo.com',
   output: 'export',
+  basePath: '/luaraujo.com',
+  assetPrefix: '/luaraujo.com/',
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
-  // Adiciona trailing slash para evitar problemas de roteamento
-  trailingSlash: true,
-  // Configuração para assets estáticos
-  assetPrefix: '/luaraujo.com'
+  // Adiciona rewrite para o HTML gerado
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: `/:path*`,
+      },
+    ]
+  },
 }
