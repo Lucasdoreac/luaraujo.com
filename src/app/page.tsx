@@ -43,12 +43,15 @@ export default function HomePage() {
                 </p>
                 <div className="text-center">
                   <Link
-                    href="/simulador"
+                    href="/simulador/educacional"
                     className="inline-block px-6 py-2 rounded-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
                   >
                     Acessar
                   </Link>
                 </div>
+              </div>
+              <div className="bg-gray-50 px-6 py-3 rounded-b-lg">
+                <p className="text-sm text-gray-500 text-center">Entenda o Futuro</p>
               </div>
             </div>
 
@@ -63,12 +66,15 @@ export default function HomePage() {
                 </p>
                 <div className="text-center">
                   <Link
-                    href="/comparador"
+                    href="/simulador/pgbl-cdb"
                     className="inline-block px-6 py-2 rounded-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
                   >
                     Comparar
                   </Link>
                 </div>
+              </div>
+              <div className="bg-gray-50 px-6 py-3 rounded-b-lg">
+                <p className="text-sm text-gray-500 text-center">Compare e Decida</p>
               </div>
             </div>
 
@@ -83,12 +89,15 @@ export default function HomePage() {
                 </p>
                 <div className="text-center">
                   <Link
-                    href="/investimentos"
+                    href="/simulador/investimentos"
                     className="inline-block px-6 py-2 rounded-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
                   >
                     Simular
                   </Link>
                 </div>
+              </div>
+              <div className="bg-gray-50 px-6 py-3 rounded-b-lg">
+                <p className="text-sm text-gray-500 text-center">Visualize seu Crescimento</p>
               </div>
             </div>
           </div>
@@ -142,10 +151,10 @@ export default function HomePage() {
               Não espere mais! Comece a planejar seu futuro financeiro agora mesmo com nossas ferramentas.
             </p>
             <Link
-              href="/contato"
+              href="/simulador"
               className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Entre em Contato
+              Começar Agora
             </Link>
           </div>
         </div>
