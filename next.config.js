@@ -2,11 +2,10 @@
 const nextConfig = {
   output: 'export',
   basePath: '/luaraujo.com',
-  assetPrefix: '/luaraujo.com/',
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
-  reactStrictMode: true,
+  reactStrictMode: true
 }
 
 module.exports = nextConfig
