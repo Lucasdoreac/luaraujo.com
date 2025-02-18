@@ -5,6 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Adiciona trailing slash para evitar problemas de roteamento
+  trailingSlash: true,
+  // Configuração para assets estáticos
+  assetPrefix: '/luaraujo.com'
 }
-
-module.exports = nextConfig
