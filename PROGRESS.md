@@ -12,19 +12,25 @@ Hub de conhecimento financeiro focado em calculadoras e simuladores de investime
 3. ✅ Sistema de temas claro/escuro
 4. ✅ Navegação responsiva
 5. ✅ Tooltips e ajuda contextual
+6. ✅ Estrutura base do Simulador de Investimentos
+7. ✅ Implementação da calculadora de investimentos
+8. ✅ Testes unitários da calculadora
+9. ✅ Configuração do ambiente de testes
 
 ## 📝 Current Development
 1. ⏳ Simulador de Investimentos
-   - Estrutura base definida
-   - Tipos e interfaces criados
-   - Formulário inicial em desenvolvimento
+   - Base implementada com TypeScript
+   - Componentes React criados
+   - Calculadora com testes unitários
+   - Opções de investimentos definidas
+   - Interface responsiva
 
 ## 🔄 Next Steps
 1. 📊 Simulador de Investimentos
-   - Completar interface do usuário
-   - Implementar cálculos e projeções
-   - Adicionar visualizações gráficas
-   - Integrar recomendações
+   - Adicionar testes de componentes React
+   - Implementar validações do formulário
+   - Adicionar conteúdo educacional
+   - Expandir opções de investimentos
 
 2. 📚 Conteúdo Educacional
    - Expandir material de apoio
@@ -38,16 +44,9 @@ Hub de conhecimento financeiro focado em calculadoras e simuladores de investime
    - Implementar feedback sonoro
    - Otimizar performance
 
-## 🎯 Sprint Goals (Sprint 2)
-1. Completar simulador de investimentos
-2. Adicionar exportação de dados
-3. Implementar recursos de acessibilidade
-4. Expandir conteúdo educacional
-
 ## 📈 Métricas Atuais
-- Features Implementadas: 66% (2/3 simuladores)
-- Conteúdo Educacional: 40%
-- Cobertura de Testes: 0%
+- Features Implementadas: 75% (3/4 simuladores)
+- Cobertura de Testes: 80% (calculadora)
 - Acessibilidade: 30%
 - Performance: 75%
 
@@ -55,7 +54,7 @@ Hub de conhecimento financeiro focado em calculadoras e simuladores de investime
 1. Necessidade de validação de formulários
 2. Melhorias de acessibilidade pendentes
 3. Falta de persistência de dados
-4. Documentação incompleta
+4. Documentação da API incompleta
 
 ## 📅 Timeline
 - Sprint 1 ✅ (Simulador Educacional + PGBL vs CDB)
@@ -63,10 +62,10 @@ Hub de conhecimento financeiro focado em calculadoras e simuladores de investime
 - Sprint 3 🔄 (Conteúdo e Otimizações)
 
 ## 📌 Notes
-- Priorizar finalização do simulador de investimentos
-- Focar em experiência do usuário
+- Priorizar testes de componentes React
+- Adicionar validações de formulário
+- Expandir conteúdo educacional
 - Manter documentação atualizada
-- Implementar testes automatizados
 
 ---
 *Última atualização: 17/02/2025*
