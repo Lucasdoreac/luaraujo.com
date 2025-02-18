@@ -4,100 +4,108 @@
 Last Updated: 2025-02-17
 
 ## 📋 Project Overview
-Creating and maintaining a personal website (luaraujo.com) with MCP integration for optimal performance and continuous updates.
+Um hub de conhecimento financeiro com calculadoras educacionais e simuladores de investimento.
 
 ## 🎯 Project Goals
-- Implement Model Context Protocol (MCP) optimization
-- Set up continuous deployment on GitHub Pages
-- Optimize token counting and management
-- Establish clear documentation and maintenance procedures
+- Implementar calculadoras financeiras interativas
+- Oferecer conteúdo educacional integrado
+- Facilitar a comparação entre investimentos
+- Fornecer experiência personalizada com temas claro/escuro
 
 ## 📊 Progress Tracker
 
-### Phase 1: Foundation Setup ⏳ (In Progress)
-- [x] Create initial repository structure
-- [x] Set up basic GitHub Actions workflow
-- [x] Configure MCP integration
-- [x] Create initial README.md
-- [x] Set up TypeScript configuration
-- [x] Create MCP core structure
-- [x] Set up basic type definitions
-- [ ] Implement token counting system
-- [ ] Set up state persistence
-- [ ] Configure Next.js pages
+### Phase 1: Foundation Setup ✅ (Completed)
+- [x] Criar estrutura inicial do repositório
+- [x] Configurar GitHub Actions workflow
+- [x] Configurar MCP integration
+- [x] Criar documentação inicial
+- [x] Configurar ambiente de desenvolvimento
+- [x] Implementar estrutura Next.js
+- [x] Implementar navegação base
+- [x] Adicionar suporte a temas claro/escuro
 
-### Phase 2: Core Features (Pending)
-- [ ] Implement token optimization algorithms
-- [ ] Set up context management
-- [ ] Configure error handling
-- [ ] Set up monitoring system
-- [ ] Configure automated testing
-- [ ] Implement caching system
+### Phase 2: Core Features ⏳ (In Progress)
+- [x] Implementar sistema de temas
+- [x] Criar componentes de navegação
+- [x] Implementar simulador educacional base
+- [x] Adicionar visualizações gráficas
+- [x] Integrar conteúdo educacional
+- [ ] Implementar PGBL vs CDB
+- [ ] Configurar simulador de investimentos
+- [ ] Adicionar exportação de resultados
 
-### Phase 3: Documentation & Guidelines (Pending)
-- [ ] Create comprehensive documentation
-- [ ] Write setup guides
-- [ ] Document MCP integration
-- [ ] Create contribution guidelines
-- [ ] Add code examples
-- [ ] Write troubleshooting guide
+### Phase 3: Educational Content ⏳ (In Progress)
+- [x] Criar estrutura de conteúdo base
+- [x] Implementar sistema de tooltips
+- [x] Adicionar conceitos financeiros básicos
+- [ ] Criar quiz interativo
+- [ ] Adicionar exemplos práticos
+- [ ] Implementar guias passo a passo
+- [ ] Criar glossário financeiro
+- [ ] Adicionar recursos visuais
 
-### Phase 4: Performance & Security (Pending)
-- [ ] Implement caching strategies
-- [ ] Set up CDN integration
-- [ ] Configure security measures
-- [ ] Optimize build process
-- [ ] Implement monitoring
-- [ ] Set up analytics
+### Phase 4: User Experience 🔄 (Pending)
+- [x] Implementar tema escuro
+- [x] Criar navegação responsiva
+- [ ] Adicionar animações
+- [ ] Melhorar acessibilidade
+- [ ] Implementar atalhos de teclado
+- [ ] Otimizar performance
+- [ ] Adicionar feedback sonoro
 
-### Phase 5: Deployment & Maintenance (Pending)
-- [ ] Configure GitHub Pages deployment
-- [ ] Set up continuous integration
-- [ ] Implement automated updates
-- [ ] Configure backup systems
-- [ ] Set up maintenance procedures
+### Phase 5: Content & Polish 🔄 (Pending)
+- [ ] Adicionar mais calculadoras
+- [ ] Expandir conteúdo educacional
+- [ ] Melhorar visualizações
+- [ ] Adicionar estudos de caso
+- [ ] Implementar perfis de investidor
+- [ ] Criar comparativos detalhados
+- [ ] Adicionar recursos avançados
 
 ## 🔄 Current Sprint
-Focus: Foundation Setup
+Focus: Core Features & Educational Content
 
 ### Completed Today
-1. Set up TypeScript configuration
-2. Created MCP core structure
-3. Implemented basic type definitions
-4. Created project documentation framework
+1. Implementação do sistema de temas (claro/escuro)
+2. Criação da navegação principal com menu dropdown
+3. Desenvolvimento do simulador educacional base
+4. Integração de gráficos e análises
+5. Adição de conteúdo educacional inicial
 
 ### In Progress
-1. Token counting system implementation
-2. State persistence setup
-3. Next.js configuration
+1. Desenvolvimento do simulador PGBL vs CDB
+2. Expansão do conteúdo educacional
+3. Melhorias de acessibilidade
 
 ### Up Next
-1. Implement token optimization algorithms
-2. Set up context management
-3. Configure error handling
+1. Implementar simulador PGBL vs CDB
+2. Adicionar mais ferramentas educacionais
+3. Melhorar a experiência do usuário
 
 ## 📝 Recent Updates
-1. Added TypeScript configuration
-2. Created MCP manager implementation
-3. Set up type definitions for MCP
-4. Updated project documentation
+1. Adicionado controle de tema na navegação
+2. Implementado menu dropdown para calculadoras
+3. Criado simulador educacional com visualizações
+4. Integrado sistema de tooltips e ajuda
+5. Adicionado conteúdo educacional base
 
 ## 🚧 Known Issues
-1. Token counting implementation pending
-2. State persistence needs to be configured
-3. Error handling system needed
+1. Necessidade de melhorar acessibilidade
+2. Falta de feedback sonoro
+3. Ausência de atalhos de teclado
+4. Pendente otimização de performance
 
 ## 📈 Next Steps
-1. Implement token counting system
-2. Set up state persistence
-3. Configure Next.js pages structure
-4. Add error handling
+1. Completar simulador PGBL vs CDB
+2. Expandir recursos educacionais
+3. Implementar melhorias de acessibilidade
+4. Adicionar mais ferramentas de análise
 
 ## 🔍 Notes
-- Making good progress on foundation setup
-- MCP core structure is in place
-- Need to focus on implementation details next
-- Maintaining clear documentation as we progress
+- Foco em oferecer conteúdo educacional de qualidade
+- Prioridade para experiência do usuário
+- Necessidade de manter documentação atualizada
+- Importância de testes contínuos
 
 ---
-*This document is automatically updated as the project progresses.*
+*Este documento é atualizado automaticamente conforme o projeto progride.*
