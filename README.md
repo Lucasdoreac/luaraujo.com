@@ -1,104 +1,77 @@
-# luaraujo.com
+# Hub de Conhecimento Financeiro 📊
 
-Personal website repository built with Model Context Protocol (MCP) optimization for efficient token counting and seamless GitHub Pages deployment.
+Um hub educacional focado em calculadoras e simuladores de investimento, projetado para auxiliar pessoas em suas decisões financeiras.
 
-## 🚀 Features
+## 🚀 Funcionalidades
 
-- Optimized token counting using MCP
-- Responsive design
-- GitHub Pages integration
-- Modern web development practices
-- Performance optimization
+- ✅ Simulador Educacional de Investimentos
+- ✅ Comparador PGBL vs CDB
+- ✅ Sistema de temas claro/escuro
+- ✅ Navegação responsiva
+- ✅ Tooltips e ajuda contextual
+- 🔄 Simulador de Investimentos (em desenvolvimento)
 
-## 📋 Prerequisites
+## 🛠️ Tecnologias
 
-Before you begin, ensure you have the following installed:
-- Node.js (v18 or higher)
-- npm or yarn
-- Git
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui
+- React Query
+- Jest
+- Cypress
 
-## 🛠️ Installation
+## 📦 Instalação
 
-1. Clone the repository:
+1. Clone o repositório:
 ```bash
 git clone https://github.com/Lucasdoreac/luaraujo.com.git
 cd luaraujo.com
 ```
 
-2. Install dependencies:
+2. Instale as dependências:
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Start the development server:
+3. Configure as variáveis de ambiente:
+```bash
+cp .env.example .env.local
+```
+
+4. Inicie o servidor de desenvolvimento:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-## 🏗️ Project Structure
+## 🧪 Testes
 
-```
-luaraujo.com/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── styles/
-│   └── utils/
-├── public/
-│   ├── images/
-│   └── assets/
-├── tests/
-├── docs/
-└── config/
-```
-
-## 💻 Development
-
-To contribute to this project:
-
-1. Create a new branch:
 ```bash
-git checkout -b feature/your-feature-name
+# Testes unitários
+npm run test
+
+# Testes E2E
+npm run cypress
 ```
 
-2. Make your changes and commit:
-```bash
-git add .
-git commit -m "feat: add your feature description"
-```
+## 📚 Documentação
 
-3. Push to your branch:
-```bash
-git push origin feature/your-feature-name
-```
+Para mais detalhes sobre o projeto, consulte:
 
-4. Open a Pull Request
+- [Guia de Contribuição](./CONTRIBUTING.md)
+- [Código de Conduta](./CODE_OF_CONDUCT.md)
+- [Documentação da API](./docs/API.md)
+- [Progresso do Projeto](./PROGRESS.md)
 
-## 📝 Documentation
+## 🤝 Contribuindo
 
-Detailed documentation is available in the [docs](./docs) directory.
+Contribuições são sempre bem-vindas! Por favor, leia o [guia de contribuição](./CONTRIBUTING.md) primeiro.
 
-## 🤝 Contributing
+## 📝 Licença
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
 
-## 📄 License
+## 📞 Contato
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👤 Author
-
-- **Lucas Araujo** - [GitHub Profile](https://github.com/Lucasdoreac)
-
-## 🙏 Acknowledgments
-
-- Thanks to all contributors who have helped shape this project
-- Special thanks to the MCP community for their support and resources
-
-## 📞 Contact
-
-For questions or feedback, please open an issue or contact the maintainer directly.
+- Website: [luaraujo.com](https://luaraujo.com)
+- GitHub: [@Lucasdoreac](https://github.com/Lucasdoreac)
