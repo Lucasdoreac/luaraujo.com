@@ -1,14 +1,17 @@
 /** @type {import('next').NextConfig} */
+const basePath = '/luaraujo.com'
+
 const nextConfig = {
   output: 'export',
-  basePath: '/luaraujo.com',
+  basePath,
+  assetPrefix: basePath,
+  trailingSlash: true,
+  distDir: 'dist',
   images: {
     unoptimized: true,
   },
   reactStrictMode: true,
-  trailingSlash: true,
-  // Ensure assets are prefixed correctly
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/luaraujo.com' : '',
+  experimental: {
+    appDir: true,
+  },
 }
-
-module.exports = nextConfig
