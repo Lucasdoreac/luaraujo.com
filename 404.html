@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecionando...</title>
+    <script>
+      const basePath = '/luaraujo.com';
+      const path = window.location.pathname;
+      const newPath = path.startsWith(basePath) ? path : basePath + path;
+      window.location.replace(newPath);
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando...</p>
+  </body>
+</html>
