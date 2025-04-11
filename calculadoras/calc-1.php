@@ -80,16 +80,16 @@ $page_title = "Simulador Educacional de Investimentos";
              <div id="cdiGroup" style="display: none;">
                  <div class="form-group">
                    <label for="taxaCDI">Taxa CDI Anual (%):</label>
-                   <input type="number" id="taxaCDI" step="0.01">
+                   <input type="number" id="taxaCDI" step="0.01" value="13.15">
                     <div class="instruction">Informe a <i>taxa do CDI anual</i> (em %).</div>
                 </div>
                 <div class="form-group">
                     <label for="percentualCDIComImposto">Percentual do CDI - Com IR (%):</label>
-                    <input type="number" id="percentualCDIComImposto" step="0.1">
+                    <input type="number" id="percentualCDIComImposto" step="0.1" value="100">
                </div>
                 <div class="form-group">
                     <label for="percentualCDISemImposto">Percentual do CDI - Sem IR (%):</label>
-                    <input type="number" id="percentualCDISemImposto" step="0.1">
+                    <input type="number" id="percentualCDISemImposto" step="0.1" value="93">
                </div>
            </div>
             <div class="form-group">
@@ -102,7 +102,7 @@ $page_title = "Simulador Educacional de Investimentos";
             </div>
             <div class="form-group">
                 <label for="inflacao">Inflação Anual Estimada (%):</label>
-                <input type="number" id="inflacao" step="0.1">
+                <input type="number" id="inflacao" step="0.1" value="4.5">
                 <span class="help-icon" onclick="showConcept('inflacao')">?</span>
                <div id="inflacaoConcept" class="concept-explanation">
                     <p>Informe a <i>taxa de inflação anual</i> estimada.</p>
@@ -245,10 +245,12 @@ $page_title = "Simulador Educacional de Investimentos";
            const tipsContent = document.getElementById('tipsContent');
             tipsContent.style.display = tipsContent.style.display === 'block' ? 'none' : 'block';
         }
+        
         function showConcept(concept) {
             const conceptElement = document.getElementById(concept + 'Concept');
             conceptElement.style.display = conceptElement.style.display === 'block' ? 'none' : 'block';
         }
+        
         function showTab(tabId) {
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => tab.style.display = 'none');
@@ -257,6 +259,7 @@ $page_title = "Simulador Educacional de Investimentos";
             buttons.forEach(button => button.classList.remove('active'));
             document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
         }
+        
         function calcularRentabilidade() {
             const valorInicial = parseFloat(document.getElementById('valorInicial').value);
             const aporteMensal = parseFloat(document.getElementById('aporteMensal').value);
@@ -267,13 +270,16 @@ $page_title = "Simulador Educacional de Investimentos";
             const percentualCDIComImposto = parseFloat(document.getElementById('percentualCDIComImposto').value) / 100;
             const percentualCDISemImposto = parseFloat(document.getElementById('percentualCDISemImposto').value) / 100;
             const inflacao = parseFloat(document.getElementById('inflacao').value) / 100;
+            
             if (isNaN(valorInicial) || isNaN(aporteMensal) || isNaN(prazo) || isNaN(inflacao)) {
                 alert("Preencha todos os campos obrigatórios para calcular a simulação.");
                 return;
             }
+            
             // Cálculo do percentual do CDI do CDB necessário para bater o LCI/LCA
             const ir = 0.225; // Imposto de Renda de 22.5% (exemplo)
             const percentualCDIComIRNecessario = percentualCDISemImposto / (1 - ir);
+            
             let taxaMensal;
             if (tipoRendimento === 'fixa') {
                 if (isNaN(taxaFixa)) {
@@ -288,13 +294,16 @@ $page_title = "Simulador Educacional de Investimentos";
                 }
                 taxaMensal = (taxaCDI / 12) * percentualCDIComImposto;
             }
+            
             let valorFinal = valorInicial;
             for (let i = 0; i < prazo; i++) {
                 valorFinal = valorFinal * (1 + taxaMensal) + aporteMensal;
             }
+            
             const ganhoTotal = valorFinal - valorInicial - (aporteMensal * prazo);
             const inflacaoAcumulada = Math.pow(1 + inflacao, prazo / 12) - 1;
             const valorFinalAjustado = valorFinal / (1 + inflacaoAcumulada);
+            
             document.getElementById('resultValorInicial').textContent = valorInicial.toFixed(2);
             document.getElementById('resultAporteMensal').textContent = aporteMensal.toFixed(2);
             document.getElementById('resultPrazo').textContent = prazo;
@@ -304,18 +313,22 @@ $page_title = "Simulador Educacional de Investimentos";
             document.getElementById('resultInflacaoAcumulada').textContent = (inflacaoAcumulada * 100).toFixed(2);
             document.getElementById('resultValorFinalAjustado').textContent = valorFinalAjustado.toFixed(2);
             document.getElementById('results').style.display = 'block';
+            
             // Comparações
             const taxaPoupanca = 0.005; // 0.5% ao mês
             const taxaCDB = (taxaCDI / 12) * percentualCDIComImposto;
             const taxaLCILCA = (taxaCDI / 12) * percentualCDISemImposto; // LCI/LCA sem IR
+            
             let valorFinalPoupanca = valorInicial;
             let valorFinalCDB = valorInicial;
             let valorFinalLCILCA = valorInicial;
+            
             for (let i = 0; i < prazo; i++) {
                 valorFinalPoupanca = valorFinalPoupanca * (1 + taxaPoupanca) + aporteMensal;
                 valorFinalCDB = valorFinalCDB * (1 + taxaCDB) + aporteMensal;
                 valorFinalLCILCA = valorFinalLCILCA * (1 + taxaLCILCA) + aporteMensal;
             }
+            
             // Aplicar imposto de renda regressivo no CDB
             let aliquotaIR;
             if (prazo <= 180) {
@@ -327,16 +340,19 @@ $page_title = "Simulador Educacional de Investimentos";
             } else {
                 aliquotaIR = 0.15; // 15%
             }
+            
             const ganhoBrutoCDB = valorFinalCDB - valorInicial - (aporteMensal * prazo);
             const impostoCDB = ganhoBrutoCDB * aliquotaIR;
             const ganhoLiquidoCDB = ganhoBrutoCDB - impostoCDB;
             const valorFinalLiquidoCDB = valorFinalCDB - impostoCDB;
+            
             document.getElementById('comparacaoPoupancaValorFinal').textContent = valorFinalPoupanca.toFixed(2);
             document.getElementById('comparacaoPoupancaGanhoTotal').textContent = (valorFinalPoupanca - valorInicial - (aporteMensal * prazo)).toFixed(2);
             document.getElementById('comparacaoCDBValorFinal').textContent = valorFinalLiquidoCDB.toFixed(2);
             document.getElementById('comparacaoCDBGanhoTotal').textContent = ganhoLiquidoCDB.toFixed(2);
             document.getElementById('comparacaoLCILCAValorFinal').textContent = valorFinalLCILCA.toFixed(2);
             document.getElementById('comparacaoLCILCAGanhoTotal').textContent = (valorFinalLCILCA - valorInicial - (aporteMensal * prazo)).toFixed(2);
+            
             // Gráfico de Simulação
             const ctxSimulacao = document.getElementById('chartSimulacao').getContext('2d');
             new Chart(ctxSimulacao, {
@@ -353,17 +369,52 @@ $page_title = "Simulador Educacional de Investimentos";
                             return valor;
                         }),
                         borderColor: '#3498db',
-                        fill: false
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        fill: true
                     }]
                 },
                 options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#ffffff'
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#ffffff',
+                                callback: function(value) {
+                                    return 'R$ ' + value.toLocaleString('pt-BR', {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    });
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#ffffff'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
                         }
                     }
                 }
             });
+            
             // Gráfico de Comparações
             const ctxComparacoes = document.getElementById('chartComparacoes').getContext('2d');
             new Chart(ctxComparacoes, {
@@ -377,13 +428,55 @@ $page_title = "Simulador Educacional de Investimentos";
                     }]
                 },
                 options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#ffffff'
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return 'R$ ' + context.raw.toLocaleString('pt-BR', {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    });
+                                }
+                            }
+                        }
+                    },
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#ffffff',
+                                callback: function(value) {
+                                    return 'R$ ' + value.toLocaleString('pt-BR', {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    });
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#ffffff'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
                         }
                     }
                 }
             });
+            
             // Laudo Comparativo
             const laudoComparativo = document.getElementById('laudoComparativo');
             if (valorFinalPoupanca > valorFinalLiquidoCDB && valorFinalPoupanca > valorFinalLCILCA) {
@@ -393,10 +486,12 @@ $page_title = "Simulador Educacional de Investimentos";
             } else {
                 laudoComparativo.textContent = "O LCI/LCA foi a opção mais vantajosa neste cenário.";
             }
+            
             // Cálculo do valor necessário para atingir a meta
             const goalAmount = parseFloat(document.getElementById('goalAmount').value);
             const goalYears = parseFloat(document.getElementById('goalYears').value);
             const goalMonths = goalYears * 12;
+            
             if (goalAmount && goalMonths) {
                 const taxaMensalMeta = (taxaCDI / 12) * percentualCDISemImposto; // Usando LCI/LCA para cálculo da meta
                 const valorNecessario = (goalAmount * taxaMensalMeta) / (Math.pow(1 + taxaMensalMeta, goalMonths) - 1);
@@ -405,9 +500,11 @@ $page_title = "Simulador Educacional de Investimentos";
             } else {
                 document.getElementById('laudoMeta').textContent = "Preencha os campos de meta financeira e prazo para calcular o valor necessário.";
             }
+            
             // Exibir o percentual do CDI do CDB necessário para bater o LCI/LCA
             document.getElementById('laudoPercentualCDB').textContent = `Para o CDB ter o mesmo rendimento líquido do LCI/LCA, ele precisa render ${(percentualCDIComIRNecessario * 100).toFixed(2)}% do CDI.`;
         }
+        
         document.getElementById('tipoRendimento').addEventListener('change', function() {
             const tipoRendimento = this.value;
             if (tipoRendimento === 'fixa') {
@@ -418,7 +515,8 @@ $page_title = "Simulador Educacional de Investimentos";
                 document.getElementById('cdiGroup').style.display = 'block';
             }
         });
-       // Função para calcular a alíquota de IR do PGBL com base no período
+       
+        // Função para calcular a alíquota de IR do PGBL com base no período
         function calcularAliquotaIRPGBL(anos) {
             if (anos <= 2) return 0.35;
             if (anos <= 4) return 0.30;
@@ -426,6 +524,7 @@ $page_title = "Simulador Educacional de Investimentos";
             if (anos <= 8) return 0.15;
             return 0.10; // Acima de 8 anos
         }
+        
         // Função para calcular a alíquota de IR do CDB com base no período
         function calcularAliquotaIRCDB(meses) {
            if (meses <= 6) return 0.225; // 22,5%
@@ -433,12 +532,14 @@ $page_title = "Simulador Educacional de Investimentos";
             if (meses <= 24) return 0.175; // 17,5%
             return 0.15; // 15% (acima de 24 meses)
         }
+        
         function calcularPGBLCDB() {
             // Obter valores dos inputs
             const rendaTributavel = parseFloat(document.getElementById('rendaTributavel').value);
             const aporteInicial = parseFloat(document.getElementById('aporteInicial').value) || 0;
            const anos = parseInt(document.getElementById('anos').value);
             const cdi = parseFloat(document.getElementById('cdi').value) / 100;
+            
             // Validar entradas
             if (isNaN(rendaTributavel) || rendaTributavel <= 0) {
                 alert("Por favor, insira uma renda anual tributável válida.");
@@ -452,17 +553,21 @@ $page_title = "Simulador Educacional de Investimentos";
                 alert("Por favor, insira uma taxa do CDI válida.");
                 return;
             }
+            
             // Constantes
             const aliquotaIR = 0.275; // 27,5%
             const aporteAnual = rendaTributavel * 0.12;
+            
             // Inicializar variáveis
             let pgblSaldo = aporteInicial;
            let pgblDesembolso = aporteInicial;
             let cdbSaldo = aporteInicial;
             let cdbDesembolso = aporteInicial;
+            
             // Limpar tabela de detalhes
             const tabelaDetalhes = document.getElementById('tabelaDetalhes').getElementsByTagName('tbody')[0];
             tabelaDetalhes.innerHTML = "";
+            
             // Calcular acumulação ao longo dos anos
             for (let i = 1; i <= anos; i++) {
                // PGBL: No primeiro ano, não há restituição
@@ -470,9 +575,11 @@ $page_title = "Simulador Educacional de Investimentos";
                 const aporteEfetivo = i === 1 ? aporteAnual : aporteAnual - restituicao;
                 pgblDesembolso += aporteEfetivo;
                 pgblSaldo = (pgblSaldo + aporteEfetivo + restituicao) * (1 + cdi);
+                
                  // CDB: Aporte fixo anual (não há restituição)
                  cdbDesembolso += aporteAnual;
                cdbSaldo = (cdbSaldo + aporteAnual) * (1 + cdi);
+                
                  // Adicionar linha na tabela de detalhes
                 const row = tabelaDetalhes.insertRow();
                 row.insertCell().innerText = i;
@@ -482,6 +589,7 @@ $page_title = "Simulador Educacional de Investimentos";
                 row.insertCell().innerText = aporteAnual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                row.insertCell().innerText = cdbSaldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             }
+           
            // Adicionar linha de totalização
            const rowTotal = tabelaDetalhes.insertRow();
             rowTotal.classList.add('total');
@@ -491,6 +599,7 @@ $page_title = "Simulador Educacional de Investimentos";
            rowTotal.insertCell().innerText = ""; // Saldo PGBL não é somado
            rowTotal.insertCell().innerText = cdbDesembolso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             rowTotal.insertCell().innerText = ""; // Saldo CDB não é somado
+             
              // Calcular IR no resgate
            const aliquotaPGBL = calcularAliquotaIRPGBL(anos);
            const pgblIR = pgblSaldo * aliquotaPGBL;
@@ -500,6 +609,7 @@ $page_title = "Simulador Educacional de Investimentos";
             const cdbRendimentos = cdbSaldo - cdbDesembolso; // Rendimentos = Saldo - Aportes
             const cdbIR = cdbRendimentos * aliquotaCDB; // IR sobre os rendimentos
             const cdbLiquido = cdbSaldo - cdbIR; // Valor líquido após IR
+            
              // Exibir resultados
             document.getElementById('pgblAcumulado').innerText = pgblSaldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('pgblDesembolso').innerText = pgblDesembolso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -509,17 +619,20 @@ $page_title = "Simulador Educacional de Investimentos";
            document.getElementById('cdbDesembolso').innerText = cdbDesembolso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('cdbIR').innerText = cdbIR.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('cdbLiquido').innerText = cdbLiquido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            
             // Análise comparativa
            const diferencaLiquida = pgblLiquido - cdbLiquido;
             const totalRestituido = pgblDesembolso - aporteInicial - (aporteAnual * anos);
             const resultadoFinalAjustado = diferencaLiquida - totalRestituido;
             const rentabilidadePGBL = ((pgblLiquido - pgblDesembolso) / pgblDesembolso) * 100;
             const rentabilidadeCDB = ((cdbLiquido - cdbDesembolso) / cdbDesembolso) * 100;
+            
              document.getElementById('diferencaLiquida').innerText = diferencaLiquida.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('totalRestituido').innerText = totalRestituido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
            document.getElementById('resultadoFinalAjustado').innerText = resultadoFinalAjustado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('rentabilidadePGBL').innerText = rentabilidadePGBL.toFixed(2) + "%";
            document.getElementById('rentabilidadeCDB').innerText = rentabilidadeCDB.toFixed(2) + "%";
+            
             // Mostrar resultados
             document.getElementById('resultados-pgbl-cdb').style.display = 'block';
         }
