@@ -1,9 +1,12 @@
+<?php
+$page_title = "Simulador Educacional de Investimentos";
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Educacional de Investimentos</title>
+    <title><?php echo $page_title; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="../assets/css/styles.css">
@@ -234,56 +237,10 @@
             </div>
        </div>
    </div>
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-           <div class="row">
-                <div class="col-md-4">
-                   <h5>Luciana Araujo</h5>
-                   <p><i class="fas fa-phone"></i> (61) 98342-6774</p>
-                   <p><i class="fas fa-envelope"></i> <a href="mailto:contato@luaraujo.com">contato@luaraujo.com</a></p>
-                </div>
-                 <div class="col-md-4">
-                   <h5>Links Rápidos</h5>
-                   <ul class="list-unstyled">
-                        <li><a href="index.php">Calculadora Principal</a></li>
-                        <li><a href="calc-2.php">Simulador PGBL vs CDB</a></li>
-                         <li><a href="calc-3.php">Simulador de Investimentos</a></li>
-                   </ul>
-                </div>
-                 <div class="col-md-4">
-                    <h5>Redes Sociais</h5>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/luciana-g-araujo-cea-cnpi-p-pqo-06a858b8/" class="text-white" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-               <div class="col-md-12 text-center">
-                   <p class="mb-0">© <?php echo date('Y'); ?> <a href="https://gravatar.com/lucasdorea" target="_blank">@HAKO</a>. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </div>
-        <script>
-            // Smooth scroll para links do footer
-            document.querySelectorAll('footer a[href^="#"]').forEach(anchor => {
-               anchor.addEventListener('click', function (e) {
-                   e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                           behavior: 'smooth',
-                            block: 'start'
-                       });
-                    }
-                });
-           });
-        </script>
-    </footer>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   <script>
+    <?php include '../components/footer/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/modules/calculadora.js"></script>
+    <script>
         function toggleTips() {
            const tipsContent = document.getElementById('tipsContent');
             tipsContent.style.display = tipsContent.style.display === 'block' ? 'none' : 'block';
